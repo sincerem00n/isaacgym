@@ -1,0 +1,8 @@
+{
+    "python.analysis.extraPaths": [
+        "/home/jingjaijan/isaacgym/python" 
+    ],
+    "python.autoComplete.extraPaths": [
+        "/home/jingjaijan/isaacgym/python"
+    ]
+}

@@ -1,0 +1,1060 @@
+<?xml version="1.0" ?>
+<robot name="hanu_a3" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find hanu_a3_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find hanu_a3_description)/urdf/hanu_a3.trans" />
+<xacro:include filename="$(find hanu_a3_description)/urdf/hanu_a3.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.0008569513194495869 -0.060691537478268553 0.2110460439064922" rpy="0 0 0"/>
+    <mass value="29.757816483937095"/>
+    <inertia ixx="0.526424" iyy="0.600812" izz="0.45224" ixy="-0.000835" iyz="0.049638" ixz="-0.001832"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="abdomen_1">
+  <inertial>
+    <origin xyz="-5.371599708328527e-07 -0.00021499782143065714 -0.02821042519943072" rpy="0 0 0"/>
+    <mass value="3.4461729598275577"/>
+    <inertia ixx="0.006528" iyy="0.015813" izz="0.015355" ixy="0.0" iyz="4.1e-05" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 -0.0 0.0336" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/abdomen_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 -0.0 0.0336" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/abdomen_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="E1R_1">
+  <inertial>
+    <origin xyz="0.05814395427981324 0.041699259491937105 0.001833915393023744" rpy="0 0 0"/>
+    <mass value="0.7497460666420297"/>
+    <inertia ixx="0.001514" iyy="0.001576" izz="0.001986" ixy="0.000184" iyz="8.8e-05" ixz="8e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.05225 -0.079619 -0.31375" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/E1R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.05225 -0.079619 -0.31375" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/E1R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="fixed_imu_1">
+  <inertial>
+    <origin xyz="-3.915524819334759e-07 -0.0036727627527110007 -0.016162481358922037" rpy="0 0 0"/>
+    <mass value="0.015000968235190659"/>
+    <inertia ixx="2e-06" iyy="2e-06" izz="1e-06" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 -0.108 -0.237849" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/fixed_imu_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 -0.108 -0.237849" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/fixed_imu_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="fixed_mid_360_1">
+  <inertial>
+    <origin xyz="-0.0011532630012551616 -0.03010326191538143 -1.7064919823672753e-05" rpy="0 0 0"/>
+    <mass value="0.2660195310092908"/>
+    <inertia ixx="0.000154" iyy="0.000107" izz="0.000163" ixy="5e-06" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 0.185058 -0.340927" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/fixed_mid_360_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 0.185058 -0.340927" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/fixed_mid_360_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="r_shoulder_pitch_1">
+  <inertial>
+    <origin xyz="0.06875295960240452 0.0004992923361463365 -0.00028525338371299114" rpy="0 0 0"/>
+    <mass value="1.1007621785981718"/>
+    <inertia ixx="0.000986" iyy="0.001816" izz="0.001372" ixy="8e-06" iyz="-1.1e-05" ixz="3e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.1845 0.0 -0.3345" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/r_shoulder_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.1845 0.0 -0.3345" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/r_shoulder_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="r_lowerarm_pitch_1">
+  <inertial>
+    <origin xyz="-0.019963218238654712 4.6910384150163824e-05 -0.051036198431920275" rpy="0 0 0"/>
+    <mass value="0.30425301141340094"/>
+    <inertia ixx="0.000604" iyy="0.000783" izz="0.000342" ixy="0.0" iyz="-0.0" ixz="3.8e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.276239 0.0 -0.0046" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/r_lowerarm_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.276239 0.0 -0.0046" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/r_lowerarm_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="r_wrist_yaw_1">
+  <inertial>
+    <origin xyz="3.041958123117805e-06 -0.00018781952608604974 -0.031544521702236705" rpy="0 0 0"/>
+    <mass value="0.5874973987182189"/>
+    <inertia ixx="0.000691" iyy="0.000756" izz="0.000298" ixy="2e-06" iyz="-2e-06" ixz="2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.260739 -0.0 0.107263" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/r_wrist_yaw_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.260739 -0.0 0.107263" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/r_wrist_yaw_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="r_shoulder_roll_1">
+  <inertial>
+    <origin xyz="0.0016648898979734206 -0.01570779742828851 -0.05863917878178049" rpy="0 0 0"/>
+    <mass value="0.7607961734833772"/>
+    <inertia ixx="0.001228" iyy="0.001029" izz="0.00089" ixy="3e-06" iyz="-8.9e-05" ixz="-1e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.261 -0.018 -0.334581" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/r_shoulder_roll_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.261 -0.018 -0.334581" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/r_shoulder_roll_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="r_upperarm_yaw_1">
+  <inertial>
+    <origin xyz="-0.0024589280852244655 -6.314657516780088e-06 -0.20058904972045877" rpy="0 0 0"/>
+    <mass value="1.231853950465188"/>
+    <inertia ixx="0.007222" iyy="0.006812" izz="0.001112" ixy="-0.0" iyz="-0.0" ixz="-0.00012"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.260739 -0.0 -0.2387" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/r_upperarm_yaw_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.260739 -0.0 -0.2387" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/r_upperarm_yaw_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="r_contact_sensor_1">
+  <inertial>
+    <origin xyz="-0.0009997843870365175 8.276394524841385e-08 3.161227521419896e-07" rpy="0 0 0"/>
+    <mass value="0.0027744190122019835"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.215239 -0.001723 0.2594" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/r_contact_sensor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.215239 -0.001723 0.2594" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/r_contact_sensor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="r_wrist_pitch_1">
+  <inertial>
+    <origin xyz="0.024068778063051494 0.0008815394242100427 -0.05469755715507982" rpy="0 0 0"/>
+    <mass value="0.5648820442616005"/>
+    <inertia ixx="0.000657" iyy="0.000723" izz="0.000487" ixy="3e-06" iyz="7e-06" ixz="-1.3e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.237239 -1.1e-05 0.159172" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/r_wrist_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.237239 -1.1e-05 0.159172" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/r_wrist_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="r_hand_roll_1">
+  <inertial>
+    <origin xyz="-0.011678369734615335 0.027984409915198506 -0.10635527606422063" rpy="0 0 0"/>
+    <mass value="0.6951777985915818"/>
+    <inertia ixx="0.003333" iyy="0.00263" izz="0.001053" ixy="0.000103" iyz="-2.2e-05" ixz="0.000163"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.260739 0.022807 0.2294" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/r_hand_roll_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.260739 0.022807 0.2294" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/r_hand_roll_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="l_shoulder_roll_1">
+  <inertial>
+    <origin xyz="-0.0016646243771700764 -0.015706435518090586 -0.05863959758614001" rpy="0 0 0"/>
+    <mass value="0.7607532248588224"/>
+    <inertia ixx="0.001228" iyy="0.001029" izz="0.00089" ixy="-3e-06" iyz="-8.9e-05" ixz="1e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.261 -0.018 -0.334581" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/l_shoulder_roll_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.261 -0.018 -0.334581" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/l_shoulder_roll_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="l_upperarm_yaw_1">
+  <inertial>
+    <origin xyz="0.0024589280852007067 -6.314657516034989e-06 -0.2005890497205285" rpy="0 0 0"/>
+    <mass value="1.231853950465188"/>
+    <inertia ixx="0.007222" iyy="0.006812" izz="0.001112" ixy="0.0" iyz="-0.0" ixz="0.00012"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.260739 -0.0 -0.2387" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/l_upperarm_yaw_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.260739 -0.0 -0.2387" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/l_upperarm_yaw_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="l_hand_roll_1">
+  <inertial>
+    <origin xyz="0.011678377119468258 0.02798441753372432 -0.106355279857894" rpy="0 0 0"/>
+    <mass value="0.6951777422111856"/>
+    <inertia ixx="0.003333" iyy="0.00263" izz="0.001053" ixy="-0.000103" iyz="-2.2e-05" ixz="-0.000163"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.260739 0.022807 0.2294" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/l_hand_roll_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.260739 0.022807 0.2294" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/l_hand_roll_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="l_contact_sensor_1">
+  <inertial>
+    <origin xyz="0.0009997843870889478 8.276394658805405e-08 3.1612269479897037e-07" rpy="0 0 0"/>
+    <mass value="0.0027744190122019835"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.215239 -0.001723 0.2594" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/l_contact_sensor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.215239 -0.001723 0.2594" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/l_contact_sensor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="l_lowerarm_pitch_1">
+  <inertial>
+    <origin xyz="0.019963215040014193 4.6910217881734054e-05 -0.05103622994522103" rpy="0 0 0"/>
+    <mass value="0.3042532172319525"/>
+    <inertia ixx="0.000604" iyy="0.000783" izz="0.000342" ixy="-0.0" iyz="-0.0" ixz="-3.8e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.276239 0.0 -0.0046" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/l_lowerarm_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.276239 0.0 -0.0046" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/l_lowerarm_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="l_wrist_yaw_1">
+  <inertial>
+    <origin xyz="-3.04195810213459e-06 -0.00018781952608436236 -0.03154452170230729" rpy="0 0 0"/>
+    <mass value="0.5874973987182189"/>
+    <inertia ixx="0.000691" iyy="0.000756" izz="0.000298" ixy="-2e-06" iyz="-2e-06" ixz="-2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.260739 -0.0 0.107263" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/l_wrist_yaw_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.260739 -0.0 0.107263" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/l_wrist_yaw_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="l_wrist_pitch_1">
+  <inertial>
+    <origin xyz="-0.024068778063011026 0.000881539424211642 -0.05469755715515007" rpy="0 0 0"/>
+    <mass value="0.5648820442616007"/>
+    <inertia ixx="0.000657" iyy="0.000723" izz="0.000487" ixy="-3e-06" iyz="7e-06" ixz="1.3e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.237239 -1.1e-05 0.159172" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/l_wrist_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.237239 -1.1e-05 0.159172" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/l_wrist_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="l_shoulder_pitch_1">
+  <inertial>
+    <origin xyz="-0.06875295960241085 0.0004992923361465659 -0.0002852533837114368" rpy="0 0 0"/>
+    <mass value="1.100762178598172"/>
+    <inertia ixx="0.000986" iyy="0.001816" izz="0.001372" ixy="-8e-06" iyz="-1.1e-05" ixz="-3e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.1845 0.0 -0.3345" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/l_shoulder_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.1845 0.0 -0.3345" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/l_shoulder_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="r_groin_yaw_1">
+  <inertial>
+    <origin xyz="-0.006328120229985419 -5.830160265564501e-07 -0.08021739425163538" rpy="0 0 0"/>
+    <mass value="1.5377146003545188"/>
+    <inertia ixx="0.004319" iyy="0.003093" izz="0.002062" ixy="0.0" iyz="0.0" ixz="-1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.064 0.0 0.1056" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/r_groin_yaw_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.064 0.0 0.1056" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/r_groin_yaw_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="r_calf_pitch_1">
+  <inertial>
+    <origin xyz="-0.012833221981697979 -0.0035413735926227 -0.12897930202565522" rpy="0 0 0"/>
+    <mass value="4.331135378810573"/>
+    <inertia ixx="0.059552" iyy="0.056091" izz="0.008374" ixy="-0.000106" iyz="-0.00474" ixz="-7.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.17455 0.0 0.4789" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/r_calf_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.17455 0.0 0.4789" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/r_calf_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="r_ankle_pitch_1">
+  <inertial>
+    <origin xyz="-0.040982138810824686 1.7451553889022195e-05 -4.304208204297666e-07" rpy="0 0 0"/>
+    <mass value="0.5674124782185294"/>
+    <inertia ixx="0.000232" iyy="0.000232" izz="0.000417" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.1973 0.0 0.8089" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/r_ankle_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.1973 0.0 0.8089" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/r_ankle_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="r_glute_pitch_1">
+  <inertial>
+    <origin xyz="0.07424629776435837 -0.007064588047454677 1.1963233319173261e-05" rpy="0 0 0"/>
+    <mass value="1.5603635963362146"/>
+    <inertia ixx="0.001693" iyy="0.003317" izz="0.002851" ixy="0.000182" iyz="1e-06" ixz="-1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0665 0.0 0.1989" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/r_glute_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0665 0.0 0.1989" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/r_glute_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="r_foot_pressure_sensor_1">
+  <inertial>
+    <origin xyz="-1.1272625416725024e-06 0.007792058896960464 -0.02133823653542588" rpy="0 0 0"/>
+    <mass value="1.553479595212022"/>
+    <inertia ixx="0.00269" iyy="0.000982" izz="0.003166" ixy="2e-06" iyz="9.5e-05" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.1563 0.00015 0.88375" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/r_foot_pressure_sensor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.1563 0.00015 0.88375" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/r_foot_pressure_sensor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="r_foot_roll_1">
+  <inertial>
+    <origin xyz="-6.168471381215457e-05 0.030657631455941588 -0.051540437741317" rpy="0 0 0"/>
+    <mass value="0.44627327408626666"/>
+    <inertia ixx="0.00067" iyy="0.000489" izz="0.000761" ixy="-1e-06" iyz="6.5e-05" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.1563 0.041 0.8089" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/r_foot_roll_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.1563 0.041 0.8089" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/r_foot_roll_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="r_thigh_roll_1">
+  <inertial>
+    <origin xyz="0.0032722908725319466 -0.02231292554226799 -0.13745567732260902" rpy="0 0 0"/>
+    <mass value="1.2279652081069916"/>
+    <inertia ixx="0.014355" iyy="0.014224" izz="0.002968" ixy="2e-06" iyz="-0.000452" ixz="0.000371"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.1573 -0.02215 0.1989" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/r_thigh_roll_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.1573 -0.02215 0.1989" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/r_thigh_roll_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="l_groin_yaw_1">
+  <inertial>
+    <origin xyz="0.006328121014745253 -5.830155942339748e-07 -0.08021739420840279" rpy="0 0 0"/>
+    <mass value="1.537714600356904"/>
+    <inertia ixx="0.004319" iyy="0.003093" izz="0.002062" ixy="-0.0" iyz="0.0" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.064 0.0 0.1056" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/l_groin_yaw_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.064 0.0 0.1056" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/l_groin_yaw_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="l_foot_roll_1">
+  <inertial>
+    <origin xyz="6.173225252920078e-05 0.030657645913463247 -0.051540447839705905" rpy="0 0 0"/>
+    <mass value="0.44627309950170957"/>
+    <inertia ixx="0.00067" iyy="0.000489" izz="0.000761" ixy="1e-06" iyz="6.5e-05" ixz="-1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.1563 0.041 0.8089" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/l_foot_roll_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.1563 0.041 0.8089" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/l_foot_roll_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="l_foot_pressure_sensor_1">
+  <inertial>
+    <origin xyz="1.1323008583252747e-06 0.007792058894576626 -0.021338237164854723" rpy="0 0 0"/>
+    <mass value="1.553479595212022"/>
+    <inertia ixx="0.00269" iyy="0.000982" izz="0.003166" ixy="-2e-06" iyz="9.5e-05" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.1563 0.00015 0.88375" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/l_foot_pressure_sensor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.1563 0.00015 0.88375" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/l_foot_pressure_sensor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="l_glute_pitch_1">
+  <inertial>
+    <origin xyz="-0.07424629689165799 -0.007064588025806169 1.1962721388647513e-05" rpy="0 0 0"/>
+    <mass value="1.5603635976783028"/>
+    <inertia ixx="0.001693" iyy="0.003317" izz="0.002851" ixy="-0.000182" iyz="1e-06" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0665 0.0 0.1989" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/l_glute_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0665 0.0 0.1989" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/l_glute_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="l_thigh_roll_1">
+  <inertial>
+    <origin xyz="-0.003272289060977429 -0.022312925544278262 -0.1374556779811195" rpy="0 0 0"/>
+    <mass value="1.2279652081077004"/>
+    <inertia ixx="0.014355" iyy="0.014224" izz="0.002968" ixy="-2e-06" iyz="-0.000452" ixz="-0.000371"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.1573 -0.02215 0.1989" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/l_thigh_roll_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.1573 -0.02215 0.1989" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/l_thigh_roll_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="l_calf_pitch_1">
+  <inertial>
+    <origin xyz="0.012833212437122321 -0.003541269466319613 -0.12897893538955196" rpy="0 0 0"/>
+    <mass value="4.331127445802879"/>
+    <inertia ixx="0.059552" iyy="0.05609" izz="0.008374" ixy="0.000106" iyz="-0.00474" ixz="7.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.17455 0.0 0.4789" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/l_calf_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.17455 0.0 0.4789" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/l_calf_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="l_ankle_pitch_1">
+  <inertial>
+    <origin xyz="0.04098214395934932 1.7451666676440476e-05 -4.3105040314905807e-07" rpy="0 0 0"/>
+    <mass value="0.5674124782138813"/>
+    <inertia ixx="0.000232" iyy="0.000232" izz="0.000417" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.1973 0.0 0.8089" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/l_ankle_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.1973 0.0 0.8089" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/l_ankle_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="neck_1">
+  <inertial>
+    <origin xyz="0.02292222964342514 0.0013059347147222522 0.02531250957360226" rpy="0 0 0"/>
+    <mass value="0.6845957975419804"/>
+    <inertia ixx="0.000871" iyy="0.000967" izz="0.000452" ixy="2e-06" iyz="3.2e-05" ixz="-1.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.02375 0.0 -0.385" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/neck_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.02375 0.0 -0.385" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/neck_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="head_1">
+  <inertial>
+    <origin xyz="-0.00013876194816040367 0.03393057481243095 0.08807372890102322" rpy="0 0 0"/>
+    <mass value="1.5523929869526694"/>
+    <inertia ixx="0.00752" iyy="0.006941" izz="0.005541" ixy="1.4e-05" iyz="-0.000153" ixz="6e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 0.0 -0.460397" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/head_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 0.0 -0.460397" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find hanu_a3_description)/meshes/head_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Joint_abdomen_yaw" type="revolute">
+  <origin xyz="0.0 0.0 -0.0336" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="abdomen_1"/>
+  <axis xyz="-0.0 0.0 -1.0"/>
+  <limit upper="1.047198" lower="-1.047198" effort="32" velocity="2.88"/>
+</joint>
+
+<joint name="Joint_E1R" type="revolute">
+  <origin xyz="-0.05225 0.079619 0.31375" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="E1R_1"/>
+  <axis xyz="-1.0 0.0 -0.0"/>
+  <limit upper="0.523599" lower="-0.785398" effort="0.86" velocity="4.52"/>
+</joint>
+
+<joint name="Joint_fixed_imu" type="fixed">
+  <origin xyz="0.0 0.108 0.237849" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="fixed_imu_1"/>
+</joint>
+
+<joint name="Joint_fixed_mid_360" type="fixed">
+  <origin xyz="0.0 -0.185058 0.340927" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="fixed_mid_360_1"/>
+</joint>
+
+<joint name="Joint_r_shoulder_pitch" type="revolute">
+  <origin xyz="0.1845 0.0 0.3345" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="r_shoulder_pitch_1"/>
+  <axis xyz="-1.0 -0.0 -0.0"/>
+  <limit upper="1.570796" lower="-3.141593" effort="72" velocity="2.27"/>
+</joint>
+
+<joint name="Joint_r_elbow_pitch" type="revolute">
+  <origin xyz="0.0155 -0.0 -0.2341" rpy="0 0 0"/>
+  <parent link="r_upperarm_yaw_1"/>
+  <child link="r_lowerarm_pitch_1"/>
+  <axis xyz="-1.0 0.0 0.0"/>
+  <limit upper="0.0" lower="-1.919862" effort="36" velocity="1.12"/>
+</joint>
+
+<joint name="Joint_r_wrist_yaw" type="revolute">
+  <origin xyz="-0.0155 0.0 -0.111863" rpy="0 0 0"/>
+  <parent link="r_lowerarm_pitch_1"/>
+  <child link="r_wrist_yaw_1"/>
+  <axis xyz="-0.0 0.0 -1.0"/>
+  <limit upper="1.570796" lower="-0.785398" effort="3.6" velocity="4.47"/>
+</joint>
+
+<joint name="Joint_r_shoulder_roll" type="revolute">
+  <origin xyz="0.0765 0.018 8.1e-05" rpy="0 0 0"/>
+  <parent link="r_shoulder_pitch_1"/>
+  <child link="r_shoulder_roll_1"/>
+  <axis xyz="-0.0 -1.0 -0.0"/>
+  <limit upper="2.70526" lower="-0.034907" effort="36" velocity="1.12"/>
+</joint>
+
+<joint name="Joint_r_shoulder_yaw" type="revolute">
+  <origin xyz="-0.000261 -0.018 -0.095881" rpy="0 0 0"/>
+  <parent link="r_shoulder_roll_1"/>
+  <child link="r_upperarm_yaw_1"/>
+  <axis xyz="-0.0 0.0 1.0"/>
+  <limit upper="1.570796" lower="-1.668487" effort="32" velocity="1.54"/>
+</joint>
+
+<joint name="Fixed_r_contact_sensor" type="fixed">
+  <origin xyz="-0.0455 0.02453 -0.03" rpy="0 0 0"/>
+  <parent link="r_hand_roll_1"/>
+  <child link="r_contact_sensor_1"/>
+</joint>
+
+<joint name="Joint_r_wrist_pitch" type="revolute">
+  <origin xyz="-0.0235 1.1e-05 -0.051909" rpy="0 0 0"/>
+  <parent link="r_wrist_yaw_1"/>
+  <child link="r_wrist_pitch_1"/>
+  <axis xyz="1.0 -0.0 0.0"/>
+  <limit upper="0.523599" lower="-0.436332" effort="27.2" velocity="1.45"/>
+</joint>
+
+<joint name="Joint_r_wrist_roll" type="revolute">
+  <origin xyz="0.0235 -0.022818 -0.070228" rpy="0 0 0"/>
+  <parent link="r_wrist_pitch_1"/>
+  <child link="r_hand_roll_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+  <limit upper="0.610865" lower="-1.570796" effort="27.2" velocity="1.45"/>
+</joint>
+
+<joint name="Joint_l_shoulder_roll" type="revolute">
+  <origin xyz="-0.0765 0.018 8.1e-05" rpy="0 0 0"/>
+  <parent link="l_shoulder_pitch_1"/>
+  <child link="l_shoulder_roll_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+  <limit upper="2.70526" lower="-0.034907" effort="36" velocity="1.12"/>
+</joint>
+
+<joint name="Joint_l_shoulder_yaw" type="revolute">
+  <origin xyz="0.000261 -0.018 -0.095881" rpy="0 0 0"/>
+  <parent link="l_shoulder_roll_1"/>
+  <child link="l_upperarm_yaw_1"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+  <limit upper="1.570796" lower="-1.668487" effort="32" velocity="1.54"/>
+</joint>
+
+<joint name="Joint_l_wrist_roll" type="revolute">
+  <origin xyz="-0.0235 -0.022818 -0.070228" rpy="0 0 0"/>
+  <parent link="l_wrist_pitch_1"/>
+  <child link="l_hand_roll_1"/>
+  <axis xyz="-0.0 -1.0 -0.0"/>
+  <limit upper="0.610865" lower="-1.570796" effort="27.2" velocity="1.45"/>
+</joint>
+
+<joint name="Fixed_l_contact_sensor" type="fixed">
+  <origin xyz="0.0455 0.02453 -0.03" rpy="0 0 0"/>
+  <parent link="l_hand_roll_1"/>
+  <child link="l_contact_sensor_1"/>
+</joint>
+
+<joint name="Joint_l_elbow_pitch" type="revolute">
+  <origin xyz="-0.0155 -0.0 -0.2341" rpy="0 0 0"/>
+  <parent link="l_upperarm_yaw_1"/>
+  <child link="l_lowerarm_pitch_1"/>
+  <axis xyz="-1.0 0.0 -0.0"/>
+  <limit upper="0.0" lower="-1.919862" effort="36" velocity="1.12"/>
+</joint>
+
+<joint name="Joint_l_wrist_yaw" type="revolute">
+  <origin xyz="0.0155 0.0 -0.111863" rpy="0 0 0"/>
+  <parent link="l_lowerarm_pitch_1"/>
+  <child link="l_wrist_yaw_1"/>
+  <axis xyz="-0.0 -0.0 1.0"/>
+  <limit upper="1.570796" lower="-0.785398" effort="3.6" velocity="4.47"/>
+</joint>
+
+<joint name="Joint_l_wrist_pitch" type="revolute">
+  <origin xyz="0.0235 1.1e-05 -0.051909" rpy="0 0 0"/>
+  <parent link="l_wrist_yaw_1"/>
+  <child link="l_wrist_pitch_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+  <limit upper="0.523599" lower="-0.436332" effort="27.2" velocity="1.45"/>
+</joint>
+
+<joint name="Joint_l_shoulder_pitch" type="revolute">
+  <origin xyz="-0.1845 0.0 0.3345" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="l_shoulder_pitch_1"/>
+  <axis xyz="-1.0 0.0 0.0"/>
+  <limit upper="1.570796" lower="-3.141593" effort="72" velocity="2.27"/>
+</joint>
+
+<joint name="Joint_r_hip_yaw" type="revolute">
+  <origin xyz="0.064 -0.0 -0.072" rpy="0 0 0"/>
+  <parent link="abdomen_1"/>
+  <child link="r_groin_yaw_1"/>
+  <axis xyz="-0.0 0.0 1.0"/>
+  <limit upper="0.523599" lower="-0.523599" effort="36" velocity="1.12"/>
+</joint>
+
+<joint name="Joint_r_knee_pitch" type="revolute">
+  <origin xyz="0.01725 -0.02215 -0.28" rpy="0 0 0"/>
+  <parent link="r_thigh_roll_1"/>
+  <child link="r_calf_pitch_1"/>
+  <axis xyz="-1.0 -0.0 0.0"/>
+  <limit upper="2.007129" lower="0.0" effort="120" velocity="1.75"/>
+</joint>
+
+<joint name="Joint_r_ankle_pitch" type="revolute">
+  <origin xyz="0.02275 0.0 -0.33" rpy="0 0 0"/>
+  <parent link="r_calf_pitch_1"/>
+  <child link="r_ankle_pitch_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+  <limit upper="0.349066" lower="-0.349066" effort="48" velocity="0.70"/>
+</joint>
+
+<joint name="Joint_r_hip_pitch" type="revolute">
+  <origin xyz="0.0025 0.0 -0.0933" rpy="0 0 0"/>
+  <parent link="r_groin_yaw_1"/>
+  <child link="r_glute_pitch_1"/>
+  <axis xyz="-1.0 0.0 -0.0"/>
+  <limit upper="2.007129" lower="-2.007129" effort="120" velocity="1.75"/>
+</joint>
+
+<joint name="Fixed_r_pressure_sensor" type="fixed">
+  <origin xyz="0.0 0.04085 -0.07485" rpy="0 0 0"/>
+  <parent link="r_foot_roll_1"/>
+  <child link="r_foot_pressure_sensor_1"/>
+</joint>
+
+<joint name="Joint_r_ankle_roll" type="revolute">
+  <origin xyz="-0.041 -0.041 0.0" rpy="0 0 0"/>
+  <parent link="r_ankle_pitch_1"/>
+  <child link="r_foot_roll_1"/>
+  <axis xyz="0.0 -1.0 -0.0"/>
+  <limit upper="0.10472" lower="-0.261799" effort="48" velocity="0.70"/>
+</joint>
+
+<joint name="Joint_r_hip_roll" type="revolute">
+  <origin xyz="0.0908 0.02215 0.0" rpy="0 0 0"/>
+  <parent link="r_glute_pitch_1"/>
+  <child link="r_thigh_roll_1"/>
+  <axis xyz="0.0 -1.0 -0.0"/>
+  <limit upper="1.570796" lower="-0.173958" effort="72" velocity="2.27"/>
+</joint>
+
+<joint name="Joint_l_hip_yaw" type="revolute">
+  <origin xyz="-0.064 -0.0 -0.072" rpy="0 0 0"/>
+  <parent link="abdomen_1"/>
+  <child link="l_groin_yaw_1"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+  <limit upper="0.523599" lower="-0.523599" effort="36" velocity="1.12"/>
+</joint>
+
+<joint name="Joint_l_ankle_roll" type="revolute">
+  <origin xyz="0.041 -0.041 0.0" rpy="0 0 0"/>
+  <parent link="l_ankle_pitch_1"/>
+  <child link="l_foot_roll_1"/>
+  <axis xyz="0.0 -1.0 -0.0"/>
+  <limit upper="0.10472" lower="-0.261799" effort="48" velocity="0.70"/>
+</joint>
+
+<joint name="Fixed_l_pressure_sensor" type="fixed">
+  <origin xyz="0.0 0.04085 -0.07485" rpy="0 0 0"/>
+  <parent link="l_foot_roll_1"/>
+  <child link="l_foot_pressure_sensor_1"/>
+</joint>
+
+<joint name="Joint_l_hip_pitch" type="revolute">
+  <origin xyz="-0.0025 0.0 -0.0933" rpy="0 0 0"/>
+  <parent link="l_groin_yaw_1"/>
+  <child link="l_glute_pitch_1"/>
+  <axis xyz="-1.0 -0.0 -0.0"/>
+  <limit upper="2.007129" lower="-2.007129" effort="120" velocity="1.75"/>
+</joint>
+
+<joint name="Joint_l_hip_roll" type="revolute">
+  <origin xyz="-0.0908 0.02215 0.0" rpy="0 0 0"/>
+  <parent link="l_glute_pitch_1"/>
+  <child link="l_thigh_roll_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+  <limit upper="1.570796" lower="-0.173958" effort="72" velocity="2.27"/>
+</joint>
+
+<joint name="Joint_l_knee_pitch" type="revolute">
+  <origin xyz="-0.01725 -0.02215 -0.28" rpy="0 0 0"/>
+  <parent link="l_thigh_roll_1"/>
+  <child link="l_calf_pitch_1"/>
+  <axis xyz="-1.0 -0.0 -0.0"/>
+  <limit upper="2.007129" lower="0.0" effort="120" velocity="1.75"/>
+</joint>
+
+<joint name="Joint_l_ankle_pitch" type="revolute">
+  <origin xyz="-0.02275 0.0 -0.33" rpy="0 0 0"/>
+  <parent link="l_calf_pitch_1"/>
+  <child link="l_ankle_pitch_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+  <limit upper="0.349066" lower="-0.349066" effort="48" velocity="0.70"/>
+</joint>
+
+<joint name="Joint_neck_pitch" type="revolute">
+  <origin xyz="-0.02375 0.0 0.385" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="neck_1"/>
+  <axis xyz="1.0 -0.0 0.0"/>
+  <limit upper="0.523599" lower="-0.785398" effort="5.6" velocity="2.49"/>
+</joint>
+
+<joint name="Joint_neck_yaw" type="revolute">
+  <origin xyz="0.02375 0.0 0.075397" rpy="0 0 0"/>
+  <parent link="neck_1"/>
+  <child link="head_1"/>
+  <axis xyz="-0.0 0.0 -1.0"/>
+  <limit upper="0.698132" lower="-0.698132" effort="2.4" velocity="3.49"/>
+</joint>
+
+</robot>

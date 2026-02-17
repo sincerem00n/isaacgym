@@ -1,0 +1,334 @@
+<?xml version="1.0" ?>
+<robot name="hanu_a3" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<transmission name="Joint_abdomen_yaw_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Joint_abdomen_yaw">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Joint_abdomen_yaw_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Joint_E1R_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Joint_E1R">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Joint_E1R_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Joint_r_shoulder_pitch_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Joint_r_shoulder_pitch">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Joint_r_shoulder_pitch_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Joint_r_elbow_pitch_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Joint_r_elbow_pitch">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Joint_r_elbow_pitch_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Joint_r_wrist_yaw_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Joint_r_wrist_yaw">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Joint_r_wrist_yaw_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Joint_r_shoulder_roll_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Joint_r_shoulder_roll">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Joint_r_shoulder_roll_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Joint_r_shoulder_yaw_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Joint_r_shoulder_yaw">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Joint_r_shoulder_yaw_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Joint_r_wrist_pitch_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Joint_r_wrist_pitch">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Joint_r_wrist_pitch_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Joint_r_wrist_roll_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Joint_r_wrist_roll">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Joint_r_wrist_roll_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Joint_l_shoulder_roll_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Joint_l_shoulder_roll">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Joint_l_shoulder_roll_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Joint_l_shoulder_yaw_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Joint_l_shoulder_yaw">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Joint_l_shoulder_yaw_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Joint_l_wrist_roll_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Joint_l_wrist_roll">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Joint_l_wrist_roll_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Joint_l_elbow_pitch_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Joint_l_elbow_pitch">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Joint_l_elbow_pitch_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Joint_l_wrist_yaw_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Joint_l_wrist_yaw">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Joint_l_wrist_yaw_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Joint_l_wrist_pitch_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Joint_l_wrist_pitch">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Joint_l_wrist_pitch_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Joint_l_shoulder_pitch_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Joint_l_shoulder_pitch">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Joint_l_shoulder_pitch_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Joint_r_hip_yaw_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Joint_r_hip_yaw">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Joint_r_hip_yaw_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Joint_r_knee_pitch_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Joint_r_knee_pitch">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Joint_r_knee_pitch_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Joint_r_ankle_pitch_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Joint_r_ankle_pitch">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Joint_r_ankle_pitch_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Joint_r_hip_pitch_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Joint_r_hip_pitch">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Joint_r_hip_pitch_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Joint_r_ankle_roll_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Joint_r_ankle_roll">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Joint_r_ankle_roll_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Joint_r_hip_roll_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Joint_r_hip_roll">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Joint_r_hip_roll_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Joint_l_hip_yaw_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Joint_l_hip_yaw">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Joint_l_hip_yaw_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Joint_l_ankle_roll_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Joint_l_ankle_roll">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Joint_l_ankle_roll_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Joint_l_hip_pitch_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Joint_l_hip_pitch">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Joint_l_hip_pitch_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Joint_l_hip_roll_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Joint_l_hip_roll">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Joint_l_hip_roll_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Joint_l_knee_pitch_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Joint_l_knee_pitch">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Joint_l_knee_pitch_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Joint_l_ankle_pitch_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Joint_l_ankle_pitch">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Joint_l_ankle_pitch_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Joint_neck_pitch_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Joint_neck_pitch">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Joint_neck_pitch_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Joint_neck_yaw_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Joint_neck_yaw">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Joint_neck_yaw_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+</robot>
