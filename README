@@ -1,0 +1,17 @@
+## Installation
+using conda
+```bash
+./create_conda_env_rlgpu.sh
+
+conda activate rlgpu
+
+# 2. Enter the folder
+cd IsaacGymEnvs
+
+# 3. Install dependencies (this installs rl_games, hydra, etc.)
+pip install -e .
+```
+## Troubleshooting
+1. Touch Conflict Due to Ubuntu 22.04
+    reinstall touch -> use supported version 
+The most reliable configuration for Isaac Gym (Preview 4) on Ubuntu 22.04 is PyTorch 1.13.1. It is stable and includes the correct MKL binaries. 
