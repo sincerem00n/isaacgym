@@ -1,0 +1,80 @@
+params:
+  seed: ${...seed}
+
+  algo:
+    name: a2c_continuous
+
+  model:
+    name: continuous_a2c_logstd
+
+  network:
+    name: actor_critic
+    separate: False # Matches identical actor/critic dims in your agent.yaml
+
+    space:
+      continuous:
+        mu_activation: None
+        sigma_activation: None
+        mu_init:
+          name: default
+        sigma_init:
+          name: const_initializer
+          val: 0 # val: 0 in logstd means std = exp(0) = 1.0 (Matches init_noise_std: 1.0)
+        fixed_sigma: True
+
+    mlp:
+      units: [512, 128, 128] # From actor_hidden_dims / critic_hidden_dims
+      activation: elu
+      d2rl: False
+
+      initializer:
+        name: default
+      regularizer:
+        name: None
+
+  load_checkpoint: ${if:${...checkpoint},True,False}
+  load_path: ${...checkpoint}
+
+  config:
+    name: ${resolve_default:Hanu,${....experiment}}
+    full_experiment_name: ${.name}
+    env_name: rlgpu
+    multi_gpu: ${....multi_gpu}
+    mixed_precision: True
+    
+    # Normalization (Disabled to match empirical_normalization: false)
+    normalize_input: False
+    normalize_value: False
+    value_bootstrap: True
+    num_actors: ${....task.env.numEnvs}
+    
+    reward_shaper:
+      scale_value: 1.0 
+      
+    normalize_advantage: True
+    gamma: 0.99
+    tau: 0.95 # Matches lam: 0.95
+    learning_rate: 1e-3 # Matches learning_rate: 0.001
+    lr_schedule: adaptive
+    kl_threshold: 0.01 # Matches desired_kl: 0.01
+    score_to_win: 20000
+    max_epochs: ${resolve_default:50000,${....max_iterations}}
+    save_best_after: 200
+    save_frequency: 1000 # Matches save_interval: 1000
+    print_stats: True
+    grad_norm: 1.0
+    entropy_coef: 0.01
+    truncate_grads: True
+    ppo: True
+    e_clip: 0.2 # Matches clip_param: 0.2
+    horizon_length: 24 # Matches num_steps_per_env: 24
+    
+    # Minibatch calculation: (numEnvs * horizon_length) / num_mini_batches
+    # Default assumption: (4096 * 24) / 4 = 24576
+    minibatch_size: 24576 
+    
+    mini_epochs: 5 # Matches num_learning_epochs: 5
+    critic_coef: 1.0 # Matches value_loss_coef: 1.0
+    clip_value: True # Matches use_clipped_value_loss: true
+    seq_len: 4
+    bounds_loss_coef: 0.0001

@@ -14,7 +14,7 @@ class Hanu(VecTask):
 
     def __init__(self, cfg, rl_device, sim_device, graphics_device_id, headless, virtual_screen_capture, force_render):
 
-        # self.cfg = cfg
+        self.cfg = cfg
 
         # self.max_episode_length = self.cfg["env"]["episode_length"]
 
@@ -31,10 +31,10 @@ class Hanu(VecTask):
         # self.death_cost = self.cfg["env"]["deathCost"]
         # self.termination_height = self.cfg["env"]["terminationHeight"]
 
-        # self.debug_viz = self.cfg["env"]["enableDebugVis"]
-        # self.plane_static_friction = self.cfg["env"]["plane"]["staticFriction"]
-        # self.plane_dynamic_friction = self.cfg["env"]["plane"]["dynamicFriction"]
-        # self.plane_restitution = self.cfg["env"]["plane"]["restitution"]
+        self.debug_viz = self.cfg["env"]["enableDebugVis"]
+        self.plane_static_friction = self.cfg["env"]["plane"]["staticFriction"]
+        self.plane_dynamic_friction = self.cfg["env"]["plane"]["dynamicFriction"]
+        self.plane_restitution = self.cfg["env"]["plane"]["restitution"]
 
         # self.max_episode_length = self.cfg["env"]["episodeLength"]
 

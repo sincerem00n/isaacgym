@@ -10,8 +10,8 @@ env:
   enableDebugVis: False
 
   # Space dimensions
-  numObservations: 93 # 9 (base) + 28*3 (pos, vel, action) -> Update if DOF count changes
-  numActions: 28 
+  numObservations: 99 # 9 (base) + 28*3 (pos, vel, action) -> Update if DOF count changes
+  numActions: 30 
   numPrivilegedObservations: 0
 
   clipActions: 100.0
@@ -59,6 +59,7 @@ env:
     
   # Asset Configuration
   asset:
+    assetRoot: "../../assets"
     assetFileName: "urdf/hanu_a3_description/urdf/hanu_a3.urdf"
     footName: ".*_foot_.*" 
     penalizeContactsOn: ["base"] 
@@ -68,6 +69,11 @@ env:
     fixBaseLink: False
     defaultDofDriveMode: 1 # POS_MODE
     replaceCylinderWithCapsule: True
+
+  plane:
+    staticFriction: 1.0
+    dynamicFriction: 1.0
+    restitution: 0.0
 
   # Reward and Penalty Weights (From HanuA3RoughEnvCfgV1)
   learn:
@@ -100,9 +106,9 @@ sim:
   use_gpu_pipeline: ${eq:${...pipeline},"gpu"}
   gravity: [0.0, 0.0, -9.81]
   physx:
-    num_threads: ${...num_threads}
-    solver_type: ${...solver_type}
-    use_gpu: ${contains:"cuda",${...sim_device}}
+    num_threads: ${....num_threads}
+    solver_type: ${....solver_type}
+    use_gpu: ${contains:"cuda",${....sim_device}} # set to False to run on CPU
     num_position_iterations: 8
     num_velocity_iterations: 4
     contact_offset: 0.02
