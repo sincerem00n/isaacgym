@@ -1,0 +1,137 @@
+# Task Name
+name: Hanu
+
+physics_engine: ${..physics_engine}
+
+env:
+  numEnvs: ${resolve_default:4096,${...num_envs}}
+  envSpacing: 2.5
+  episodeLength: 1000 # 20.0s / (0.005 dt * 4 decimation)
+  enableDebugVis: False
+
+  # Space dimensions
+  numObservations: 93 # 9 (base) + 28*3 (pos, vel, action) -> Update if DOF count changes
+  numActions: 28 
+  numPrivilegedObservations: 0
+
+  clipActions: 100.0
+  actionScale: 0.25
+
+  # Control parameters
+  controlFrequencyInv: 4 # decimation
+
+  # Observation scales (From HanuA3RoughEnvCfgV1)
+  obsScales:
+    lin_vel: 2.0
+    ang_vel: 0.25
+    dof_pos: 1.0
+    dof_vel: 0.05
+
+  # Command ranges
+  randomCommandVelocityRanges:
+    linear_x: [0.25, 0.55]
+    linear_y: [0.0, 1.0]
+    yaw: [-0.5, 0.5]
+
+  # Base Initialization State
+  baseInitState:
+    pos: [0.0, 0.0, 1.0] # x,y,z [m]
+    rot: [0.0, 0.0, 0.0, 1.0] # x,y,z,w [quat]
+    vLinear: [0.0, 0.0, 0.0]  # x,y,z [m/s]
+    vAngular: [0.0, 0.0, 0.0]  # x,y,z [rad/s]
+    posRange: [-0.5, 0.5] # X and Y random spawn range
+    yawRange: [-3.14, 3.14]
+
+  # Default Joint Angles (From HANU_A3_CFG)
+  defaultJointAngles:
+    hip_pitch: -0.32
+    knee_pitch: 0.42
+    ankle_pitch: 0.30
+    l_hip_roll: 0.02
+    r_hip_roll: 0.02
+    l_ankle_roll: -0.02
+    r_ankle_roll: 0.02
+    l_hip_yaw: -0.08
+    r_hip_yaw: -0.08
+    shoulder_pitch: 0.40
+    elbow_pitch: -0.90
+    shoulder_roll: 0.02
+    
+  # Asset Configuration
+  asset:
+    assetFileName: "urdf/hanu_a3_description/urdf/hanu_a3.urdf"
+    footName: ".*_foot_.*" 
+    penalizeContactsOn: ["base"] 
+    terminateAfterContacts: True
+    disableGravity: False
+    collapseFixedJoints: True
+    fixBaseLink: False
+    defaultDofDriveMode: 1 # POS_MODE
+    replaceCylinderWithCapsule: True
+
+  # Reward and Penalty Weights (From HanuA3RoughEnvCfgV1)
+  learn:
+    # Task
+    track_lin_vel_xy_exp: 1.5
+    track_ang_vel_z_exp: 1.0
+    upright_orientation: 3.0
+    # Penalties
+    lin_vel_z_l2: -1.0
+    ang_vel_xy_l2: -0.2
+    action_rate_l2: -0.005
+    joint_vel_legs: -0.3
+    joint_vel_neck: -0.5
+    ankle_dof_pos_limits: -1.0
+    joint_deviation_arms: -0.1
+    joint_deviation_neck: -0.1
+    # Gait / Contact
+    feet_air_time: 1.0
+    feet_slide: -0.2
+    # Terminations
+    termination_penalty: -200.0
+
+    # Reward thresholds
+    air_time_threshold: 0.18
+
+sim:
+  dt: 0.005
+  substeps: 1
+  up_axis: "z"
+  use_gpu_pipeline: ${eq:${...pipeline},"gpu"}
+  gravity: [0.0, 0.0, -9.81]
+  physx:
+    num_threads: ${...num_threads}
+    solver_type: ${...solver_type}
+    use_gpu: ${contains:"cuda",${...sim_device}}
+    num_position_iterations: 8
+    num_velocity_iterations: 4
+    contact_offset: 0.02
+    rest_offset: 0.0
+    bounce_threshold_velocity: 0.2
+    max_depenetration_velocity: 1.0
+    default_buffer_size_multiplier: 5.0
+    max_gpu_contact_pairs: 8388608 # 8*1024*1024
+
+task:
+  randomize: True
+  randomization_params:
+    frequency: 600   # How often to check for randomization (steps)
+    # Event: reset_robot_joints (Position multiplier)
+    actor_params:
+      humanoid:
+        dof_properties:
+          lower:
+            range: [0.5, 1.5]
+            operation: "scaling"
+            distribution: "uniform"
+          upper:
+            range: [0.5, 1.5]
+            operation: "scaling"
+            distribution: "uniform"
+        # Event: add_base_mass
+        rigid_body_properties:
+          mass: 
+            range: [-0.5, 1.5]
+            operation: "additive"
+            distribution: "uniform"
+            setup_only: True # Done at startup
