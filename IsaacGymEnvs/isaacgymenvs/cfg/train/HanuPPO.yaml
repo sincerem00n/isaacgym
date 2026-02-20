@@ -71,7 +71,7 @@ params:
     
     # Minibatch calculation: (numEnvs * horizon_length) / num_mini_batches
     # Default assumption: (4096 * 24) / 4 = 24576
-    minibatch_size: 24576 
+    minibatch_size: 512
     
     mini_epochs: 5 # Matches num_learning_epochs: 5
     critic_coef: 1.0 # Matches value_loss_coef: 1.0

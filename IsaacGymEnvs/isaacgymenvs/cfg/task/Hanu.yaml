@@ -4,7 +4,7 @@ name: Hanu
 physics_engine: ${..physics_engine}
 
 env:
-  numEnvs: ${resolve_default:4096,${...num_envs}}
+  numEnvs: ${resolve_default:128,${...num_envs}}
   envSpacing: 2.5
   episodeLength: 1000 # 20.0s / (0.005 dt * 4 decimation)
   enableDebugVis: False
@@ -36,7 +36,8 @@ env:
   # Base Initialization State
   baseInitState:
     pos: [0.0, 0.0, 1.0] # x,y,z [m]
-    rot: [0.0, 0.0, 0.0, 1.0] # x,y,z,w [quat]
+    # rot: [-0.707, 0.0, 0.0, 0.707] # x,y,z,w [quat]
+    rot: [0.0, 0.707, 0.0,0.707]
     vLinear: [0.0, 0.0, 0.0]  # x,y,z [m/s]
     vAngular: [0.0, 0.0, 0.0]  # x,y,z [rad/s]
     posRange: [-0.5, 0.5] # X and Y random spawn range
@@ -61,13 +62,13 @@ env:
   asset:
     assetRoot: "../../assets"
     assetFileName: "urdf/hanu_a3_description/urdf/hanu_a3.urdf"
-    footName: ".*_foot_.*" 
-    penalizeContactsOn: ["base"] 
-    terminateAfterContacts: True
-    disableGravity: False
+    # footName: ".*_foot_.*" 
+    # penalizeContactsOn: ["base"] 
+    # terminateAfterContacts: True
+    # disableGravity: False
     collapseFixedJoints: True
-    fixBaseLink: False
-    defaultDofDriveMode: 1 # POS_MODE
+    # fixBaseLink: False
+    # defaultDofDriveMode: 1 # POS_MODE
     replaceCylinderWithCapsule: True
 
   plane:

@@ -16,8 +16,6 @@ class Hanu(VecTask):
 
         self.cfg = cfg
 
-        # self.max_episode_length = self.cfg["env"]["episode_length"]
-
         # self.randomization_params = self.cfg["task"]["randomization_params"]
         # self.randomize = self.cfg["task"]["randomize"]
         # self.dof_vel_scale = self.cfg["env"]["dofVelocityScale"]
@@ -36,7 +34,7 @@ class Hanu(VecTask):
         self.plane_dynamic_friction = self.cfg["env"]["plane"]["dynamicFriction"]
         self.plane_restitution = self.cfg["env"]["plane"]["restitution"]
 
-        # self.max_episode_length = self.cfg["env"]["episodeLength"]
+        self.max_episode_length = self.cfg["env"]["episodeLength"]
 
         self.cfg["env"]["numActions"] = 30
 
@@ -67,14 +65,19 @@ class Hanu(VecTask):
 
         self.root_states = gymtorch.wrap_tensor(_actor_root_state)
         self.dof_states = gymtorch.wrap_tensor(_dof_state)
-        self.net_contact_forces = gymtorch.wrap_tensor(_net_contact_forces).view(self.num_envs, -1, 3)
+        self.contact_forces = gymtorch.wrap_tensor(_net_contact_forces).view(self.num_envs, -1, 3)
 
-        self.dof_pos = self.dof_states.view(self.num_envs, self.num_dofs, 2)[..., 0]
-        self.dof_vel = self.dof_states.view(self.num_envs, self.num_dofs, 2)[..., 1]
+        self.dof_pos = self.dof_states.view(self.num_envs, self.num_dof, 2)[..., 0]
+        self.dof_vel = self.dof_states.view(self.num_envs, self.num_dof, 2)[..., 1]
+
+        self.base_quat = self.root_states[:, 3:7]
+        self.base_lin_vel = self.root_states[:, 7:10]
+        self.base_ang_vel = self.root_states[:, 10:13]
 
         # Buffers (not in example)
         self.commands = torch.zeros(self.num_envs, 3, dtype=torch.float, device=self.device, requires_grad=False)
         self.actions = torch.zeros(self.num_envs, self.num_dof,dtype=torch.float, device=self.device, requires_grad=False)
+        self.prev_actions = torch.zeros_like(self.actions)
         self.default_dof_pos = torch.zeros(self.num_dof, dtype=torch.float, device=self.device, requires_grad=False)
         
         # Up vector for projected gravity
@@ -127,8 +130,13 @@ class Hanu(VecTask):
 
     def _create_envs(self, num_envs, spacing, num_per_row):
 
-        asset_root = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../../assets')
+        # asset_root = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../../assets')
+        asset_root = "/home/jingjaijan/isaacgym/IsaacGymEnvs/assets"
         asset_file = "urdf/hanu_a3_description/urdf/hanu_a3.urdf"
+        # /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/hanu_a3_description/urdf/hanu_a3.urdf
+
+        import os
+        print(f"CHECKING PATH: {os.path.join(asset_root, asset_file)}")
 
         if "asset" in self.cfg["env"]:
             asset_file = self.cfg["env"]["asset"].get("assetFileName", asset_file)
@@ -139,9 +147,10 @@ class Hanu(VecTask):
 
         asset_options = gymapi.AssetOptions()
         asset_options.default_dof_drive_mode = gymapi.DOF_MODE_POS
-        asset_options.collapse_fixed_joints = True
-        asset_options.replace_cylinder_with_capsule = True
+        asset_options.collapse_fixed_joints = self.cfg["env"]["asset"]["collapseFixedJoints"]
+        asset_options.replace_cylinder_with_capsule = self.cfg["env"]["asset"]["replaceCylinderWithCapsule"]
         asset_options.flip_visual_attachments = True
+        asset_options.armature = 0.01
 
         hanu_asset = self.gym.load_asset(self.sim, asset_root, asset_file, asset_options)
 
@@ -225,6 +234,7 @@ class Hanu(VecTask):
         self.dof_limits_upper = to_torch(self.dof_limits_upper, device=self.device)
 
     def pre_physics_step(self, actions):
+        self.prev_actions[:] = self.actions.clone()
         self.actions = actions.clone().to(self.device)
         
         # Apply action scale and clip
@@ -303,7 +313,7 @@ class Hanu(VecTask):
         rew_upright = torch.square(projected_gravity[:, 2]) * 3.0 # Weight = 3.0
 
         # 4. Action Rate L2
-        rew_action_rate = torch.sum(torch.square(self.actions - self.last_actions), dim=1) * -0.005
+        rew_action_rate = torch.sum(torch.square(self.actions - self.prev_actions), dim=1) * -0.005
 
         # 5. Base Contact Termination
         # Assuming index 0 is the base link. Penalize if contact force is > 1.0 on base
@@ -323,7 +333,9 @@ class Hanu(VecTask):
         self.dof_vel[env_ids] = 0.0
 
         env_ids_int32 = env_ids.to(dtype=torch.int32)
-        self.gym.set_dof_state_tensor_indexed(self.sim, gymtorch.unwrap_tensor(self.dof_state), gymtorch.unwrap_tensor(env_ids_int32), len(env_ids_int32))
+        self.gym.set_dof_state_tensor_indexed(self.sim, gymtorch.unwrap_tensor(self.dof_states), gymtorch.unwrap_tensor(env_ids_int32), len(env_ids_int32))
+
+        self.prev_actions[env_ids] = 0.0
 
         self.reset_buf[env_ids] = 0
         self.progress_buf[env_ids] = 0
