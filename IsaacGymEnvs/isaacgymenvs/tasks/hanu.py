@@ -74,6 +74,10 @@ class Hanu(VecTask):
         self.base_lin_vel = self.root_states[:, 7:10]
         self.base_ang_vel = self.root_states[:, 10:13]
 
+        # initial root states for reset
+        self.initial_root_states = self.root_states.clone()
+        self.initial_root_states[:, 7:13] = 0.0  # Force zero starting velocity
+
         # Buffers (not in example)
         self.commands = torch.zeros(self.num_envs, 3, dtype=torch.float, device=self.device, requires_grad=False)
         self.actions = torch.zeros(self.num_envs, self.num_dof,dtype=torch.float, device=self.device, requires_grad=False)
@@ -159,6 +163,9 @@ class Hanu(VecTask):
 
         dof_names = self.gym.get_asset_dof_names(hanu_asset)
 
+        self.dof_names = dof_names
+        self._get_default_dof_pos()
+
         # Setup env grid
         lower = gymapi.Vec3(-spacing, -spacing, 0.0)
         upper = gymapi.Vec3(spacing, spacing, spacing)
@@ -239,7 +246,7 @@ class Hanu(VecTask):
         
         # Apply action scale and clip
         targets = self.actions * self.action_scale + self.default_dof_pos
-        targets = torch.clip(targets, -100.0, 100.0)
+        targets = torch.clip(targets, -100.0, 100.0).contiguous()
         
         self.gym.set_dof_position_target_tensor(self.sim, gymtorch.unwrap_tensor(targets))
 
@@ -328,12 +335,22 @@ class Hanu(VecTask):
 
     def reset_idx(self, env_ids):
         # Apply position range (0.5, 1.5) scaling from HanuA3RoughEnvCfgV1 events
-        positions = self.default_dof_pos.unsqueeze(0) + torch_rand_float(0.5, 1.5, (len(env_ids), self.num_dof), device=self.device)
+        positions = self.default_dof_pos.unsqueeze(0) + torch_rand_float(-0.05, 0.05, (len(env_ids), self.num_dof), device=self.device)
         self.dof_pos[env_ids] = positions
         self.dof_vel[env_ids] = 0.0
 
         env_ids_int32 = env_ids.to(dtype=torch.int32)
-        self.gym.set_dof_state_tensor_indexed(self.sim, gymtorch.unwrap_tensor(self.dof_states), gymtorch.unwrap_tensor(env_ids_int32), len(env_ids_int32))
+
+        self.gym.set_dof_state_tensor_indexed(self.sim, 
+                                              gymtorch.unwrap_tensor(self.dof_states), 
+                                              gymtorch.unwrap_tensor(env_ids_int32), 
+                                              len(env_ids_int32))
+        
+        self.root_states[env_ids] = self.initial_root_states[env_ids]
+        self.gym.set_actor_root_state_tensor_indexed(self.sim, 
+                                                  gymtorch.unwrap_tensor(self.root_states), 
+                                                  gymtorch.unwrap_tensor(env_ids_int32), 
+                                                  len(env_ids_int32))
 
         self.prev_actions[env_ids] = 0.0
 

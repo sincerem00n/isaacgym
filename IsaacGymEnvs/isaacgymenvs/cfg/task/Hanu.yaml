@@ -4,7 +4,7 @@ name: Hanu
 physics_engine: ${..physics_engine}
 
 env:
-  numEnvs: ${resolve_default:1,${...num_envs}}
+  numEnvs: ${resolve_default:64,${...num_envs}}
   envSpacing: 2.5
   episodeLength: 1000 # 20.0s / (0.005 dt * 4 decimation)
   enableDebugVis: False
