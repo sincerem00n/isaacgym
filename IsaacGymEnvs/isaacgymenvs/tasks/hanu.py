@@ -17,7 +17,7 @@ class Hanu(VecTask):
         self.cfg = cfg
 
         # self.randomization_params = self.cfg["task"]["randomization_params"]
-        # self.randomize = self.cfg["task"]["randomize"]
+        self.randomize = self.cfg["task"]["randomize"]
         # self.dof_vel_scale = self.cfg["env"]["dofVelocityScale"]
         # self.contact_force_scale = self.cfg["env"]["contactForceScale"]
         # self.power_scale = self.cfg["env"]["powerScale"]

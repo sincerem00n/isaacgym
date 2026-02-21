@@ -4,7 +4,7 @@ name: Hanu
 physics_engine: ${..physics_engine}
 
 env:
-  numEnvs: ${resolve_default:128,${...num_envs}}
+  numEnvs: ${resolve_default:1,${...num_envs}}
   envSpacing: 2.5
   episodeLength: 1000 # 20.0s / (0.005 dt * 4 decimation)
   enableDebugVis: False
@@ -36,8 +36,9 @@ env:
   # Base Initialization State
   baseInitState:
     pos: [0.0, 0.0, 1.0] # x,y,z [m]
-    # rot: [-0.707, 0.0, 0.0, 0.707] # x,y,z,w [quat]
-    rot: [0.0, 0.707, 0.0,0.707]
+    # rot: [0.0, 0.0, 0.0, 1.0]
+    rot: [-0.707, 0.0, 0.0, 0.707] # x,y,z,w [quat]
+    # rot: [0.0, 0.707, 0.0,0.707]
     vLinear: [0.0, 0.0, 0.0]  # x,y,z [m/s]
     vAngular: [0.0, 0.0, 0.0]  # x,y,z [rad/s]
     posRange: [-0.5, 0.5] # X and Y random spawn range
@@ -120,7 +121,7 @@ sim:
     max_gpu_contact_pairs: 8388608 # 8*1024*1024
 
 task:
-  randomize: True
+  randomize: False
   randomization_params:
     frequency: 600   # How often to check for randomization (steps)
     # Event: reset_robot_joints (Position multiplier)
