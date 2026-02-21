@@ -1,0 +1,27 @@
+running develop
+running egg_info
+creating hanu_a3_description.egg-info
+writing hanu_a3_description.egg-info/PKG-INFO
+writing dependency_links to hanu_a3_description.egg-info/dependency_links.txt
+writing entry points to hanu_a3_description.egg-info/entry_points.txt
+writing requirements to hanu_a3_description.egg-info/requires.txt
+writing top-level names to hanu_a3_description.egg-info/top_level.txt
+writing manifest file 'hanu_a3_description.egg-info/SOURCES.txt'
+reading manifest file 'hanu_a3_description.egg-info/SOURCES.txt'
+writing manifest file 'hanu_a3_description.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/install/hanu_a3_description/lib/python3.10/site-packages/hanu-a3-description.egg-link (link to .)
+
+Installed /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/build/hanu_a3_description
+running symlink_data
+creating /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/install/hanu_a3_description/share/ament_index
+creating /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/install/hanu_a3_description/share/ament_index/resource_index
+creating /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/install/hanu_a3_description/share/ament_index/resource_index/packages
+symbolically linking /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/build/hanu_a3_description/resource/hanu_a3_description -> /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/install/hanu_a3_description/share/ament_index/resource_index/packages
+symbolically linking /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/build/hanu_a3_description/package.xml -> /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/install/hanu_a3_description/share/hanu_a3_description
+creating /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/install/hanu_a3_description/share/hanu_a3_description/launch
+symbolically linking /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/build/hanu_a3_description/launch/gazebo.launch.py -> /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/install/hanu_a3_description/share/hanu_a3_description/launch
+symbolically linking /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/build/hanu_a3_description/launch/display.launch.py -> /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/install/hanu_a3_description/share/hanu_a3_description/launch
+creating /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/install/hanu_a3_description/share/hanu_a3_description/urdf
+symbolically linking /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/build/hanu_a3_description/urdf/hanu_a3.urdf -> /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/install/hanu_a3_description/share/hanu_a3_description/urdf
+symbolically linking /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/build/hanu_a3_description/urdf/hanu_a3.trans -> /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/install/hanu_a3_description/share/hanu_a3_description/urdf

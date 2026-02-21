@@ -1,0 +1,30 @@
+[0.340s] Invoking command in '/home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/build/hanu_a3_description': CONDA_PROMPT_MODIFIER=(rlgpu) PYTHONPATH=/home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/build/hanu_a3_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/install/hanu_a3_description/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/build/hanu_a3_description/build --no-deps symlink_data
+[0.468s] running develop
+[0.534s] running egg_info
+[0.534s] creating hanu_a3_description.egg-info
+[0.535s] writing hanu_a3_description.egg-info/PKG-INFO
+[0.535s] writing dependency_links to hanu_a3_description.egg-info/dependency_links.txt
+[0.535s] writing entry points to hanu_a3_description.egg-info/entry_points.txt
+[0.535s] writing requirements to hanu_a3_description.egg-info/requires.txt
+[0.535s] writing top-level names to hanu_a3_description.egg-info/top_level.txt
+[0.535s] writing manifest file 'hanu_a3_description.egg-info/SOURCES.txt'
+[0.536s] reading manifest file 'hanu_a3_description.egg-info/SOURCES.txt'
+[0.536s] writing manifest file 'hanu_a3_description.egg-info/SOURCES.txt'
+[0.537s] running build_ext
+[0.537s] Creating /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/install/hanu_a3_description/lib/python3.10/site-packages/hanu-a3-description.egg-link (link to .)
+[0.537s] 
+[0.537s] Installed /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/build/hanu_a3_description
+[0.537s] running symlink_data
+[0.538s] creating /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/install/hanu_a3_description/share/ament_index
+[0.538s] creating /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/install/hanu_a3_description/share/ament_index/resource_index
+[0.538s] creating /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/install/hanu_a3_description/share/ament_index/resource_index/packages
+[0.538s] symbolically linking /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/build/hanu_a3_description/resource/hanu_a3_description -> /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/install/hanu_a3_description/share/ament_index/resource_index/packages
+[0.538s] symbolically linking /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/build/hanu_a3_description/package.xml -> /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/install/hanu_a3_description/share/hanu_a3_description
+[0.538s] creating /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/install/hanu_a3_description/share/hanu_a3_description/launch
+[0.538s] symbolically linking /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/build/hanu_a3_description/launch/gazebo.launch.py -> /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/install/hanu_a3_description/share/hanu_a3_description/launch
+[0.538s] symbolically linking /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/build/hanu_a3_description/launch/display.launch.py -> /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/install/hanu_a3_description/share/hanu_a3_description/launch
+[0.538s] creating /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/install/hanu_a3_description/share/hanu_a3_description/urdf
+[0.538s] symbolically linking /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/build/hanu_a3_description/urdf/hanu_a3.urdf -> /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/install/hanu_a3_description/share/hanu_a3_description/urdf
+[0.538s] symbolically linking /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/build/hanu_a3_description/urdf/hanu_a3.trans -> /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/install/hanu_a3_description/share/hanu_a3_description/urdf
+[0.538s] error: can't copy '/home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/build/hanu_a3_description/urdf/hanu_a3': doesn't exist or not a regular file
+[0.555s] Invoked command in '/home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/build/hanu_a3_description' returned '1': CONDA_PROMPT_MODIFIER=(rlgpu) PYTHONPATH=/home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/build/hanu_a3_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/install/hanu_a3_description/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jingjaijan/isaacgym/IsaacGymEnvs/assets/urdf/hanu_a3_description/build/hanu_a3_description/build --no-deps symlink_data
