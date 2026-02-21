@@ -153,8 +153,9 @@ class Hanu(VecTask):
         asset_options.default_dof_drive_mode = gymapi.DOF_MODE_POS
         asset_options.collapse_fixed_joints = self.cfg["env"]["asset"]["collapseFixedJoints"]
         asset_options.replace_cylinder_with_capsule = self.cfg["env"]["asset"]["replaceCylinderWithCapsule"]
-        asset_options.flip_visual_attachments = True
+        asset_options.flip_visual_attachments = False
         asset_options.armature = 0.01
+        asset_options.thickness = 0.001
 
         hanu_asset = self.gym.load_asset(self.sim, asset_root, asset_file, asset_options)
 

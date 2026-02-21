@@ -36,8 +36,8 @@ env:
   # Base Initialization State
   baseInitState:
     pos: [0.0, 0.0, 1.0] # x,y,z [m]
-    # rot: [0.0, 0.0, 0.0, 1.0]
-    rot: [-0.707, 0.0, 0.0, 0.707] # x,y,z,w [quat]
+    rot: [0.0, 0.0, 0.0, 1.0]
+    # rot: [-0.707, 0.0, 0.0, 0.707] # x,y,z,w [quat]
     # rot: [0.0, 0.707, 0.0,0.707]
     vLinear: [0.0, 0.0, 0.0]  # x,y,z [m/s]
     vAngular: [0.0, 0.0, 0.0]  # x,y,z [rad/s]
