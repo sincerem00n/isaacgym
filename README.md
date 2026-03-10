@@ -11,6 +11,13 @@ cd IsaacGymEnvs
 # 3. Install dependencies (this installs rl_games, hydra, etc.)
 pip install -e .
 ```
+## Run Training
+```bash
+cd IsaacGymEnvs/isaacgymenvs
+python train.py task=Hanu headless=True wandb_activate=True wandb_name=HanuPPO
+```
+Check out the [IsaacGymEnvs](https://github.com/sincerem00n/isaacgym/tree/main/IsaacGymEnvs#running-the-benchmarks)
+
 ## Troubleshooting
 1. Touch Conflict Due to Ubuntu 22.04
     reinstall touch -> use supported version 
