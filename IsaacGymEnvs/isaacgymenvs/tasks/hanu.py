@@ -869,6 +869,34 @@ class Hanu(VecTask):
         )
 
         # ─────────────────────────────────────────────────────────────────
+        # Log individual reward terms to TensorBoard via rl_games extras.
+        # rl_games reads self.extras["episode"] each step and writes every
+        # key as a scalar under "Episode Rewards/<key>" in TensorBoard.
+        # ─────────────────────────────────────────────────────────────────
+        self.extras["episode"] = {
+            "rew_track_lin_vel_xy":    rew_lin.mean().item(),
+            "rew_track_ang_vel_z":     rew_ang.mean().item(),
+            "rew_upright_orientation": rew_upright.mean().item(),
+            "rew_feet_air_time":       rew_air_pos.mean().item(),
+            "rew_feet_air_time_neg":   rew_air_neg.mean().item(),
+            "rew_feet_slide":          rew_slide.mean().item(),
+            "rew_lin_vel_z_l2":        rew_lin_z.mean().item(),
+            "rew_ang_vel_xy_l2":       rew_ang_xy.mean().item(),
+            "rew_dof_torques_l2":      rew_torques.mean().item(),
+            "rew_dof_acc_l2":          rew_acc.mean().item(),
+            "rew_action_rate_l2":      rew_action_rate.mean().item(),
+            "rew_joint_vel_legs":      rew_joint_vel_legs.mean().item(),
+            "rew_joint_vel_neck":      rew_joint_vel_neck.mean().item(),
+            "rew_joint_dev_arms":      rew_arm_dev.mean().item(),
+            "rew_joint_dev_neck":      rew_neck_dev.mean().item(),
+            "rew_ankle_dof_limits":    rew_ankle_limits.mean().item(),
+            "rew_feet_mirror":         rew_mirror.mean().item(),
+            "rew_undesired_contacts":  rew_undesired.mean().item(),
+            "rew_termination_penalty": rew_termination.mean().item(),
+            "rew_total":               self.rew_buf.mean().item(),
+        }
+
+        # ─────────────────────────────────────────────────────────────────
         # Reset condition (HanuA3TerminationsCfg)
         #   • time_out  : progress >= max_episode_length
         #   • base_contact: base_link / base_* bodies touched the ground
