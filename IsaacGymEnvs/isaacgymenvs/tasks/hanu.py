@@ -356,11 +356,12 @@ class Hanu(VecTask):
             if "_groin_" in bname or "_glute_" in bname:
                 self.undesired_body_ids.append(i)
 
-        # base_link body index for termination
-        self.base_body_ids = []
-        for i, bname in enumerate(self.body_names):
-            if bname in ["base_link", "base"] or bname.startswith("base_"):
-                self.base_body_ids.append(i)
+        # Termination body ids: every link EXCEPT feet
+        # Refer: HanuA3RoughEnvCfgV1: body_names = ["^(?!.*_foot_.*).*"]
+        self.base_body_ids = [
+            i for i, bname in enumerate(self.body_names)
+            if "_foot_" not in bname
+        ]
 
         # mirror joint pairs for feet_mirror reward (hip/knee/ankle)
         # [[left_idx, right_idx], ...] 
@@ -832,15 +833,15 @@ class Hanu(VecTask):
 
         # ─────────────────────────────────────────────────────────────────
         # 19. Termination penalty (is_terminated)
-        #     Applied when episode ends due to base contact (not time-out)
+        #     Triggered when ANY non-foot link contacts the ground.
+        #     Mirrors HanuA3RoughEnvCfgV1: body_names = "^(?!.*_foot_.*).*"
         # ─────────────────────────────────────────────────────────────────
         if self.base_body_ids:
             base_contact = (
                 self.contact_forces[:, self.base_body_ids, :].norm(dim=-1) > 1.0
             ).any(dim=1)
         else:
-            # Fallback: index 0 assumed to be base
-            base_contact = self.contact_forces[:, 0, :].norm(dim=-1) > 1.0
+            base_contact = torch.zeros(self.num_envs, dtype=torch.bool, device=self.device)
         rew_termination = base_contact.float() * self.rew_scales["termination_penalty"]
 
         # ─────────────────────────────────────────────────────────────────
