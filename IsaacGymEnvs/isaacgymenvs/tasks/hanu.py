@@ -159,8 +159,8 @@ class Hanu(VecTask):
             "track_lin_vel_xy":    1.5,     # exp kernel
             "track_ang_vel_z":     1.0,     # exp kernel
             "upright_orientation": 3.0,     # upright_orientation_l2
-            "feet_air_time":       0.05,    # feet_air_time_positive_biped
-            "feet_air_time_neg":  -0.05,    # feet_air_time_negative_biped (penalty)
+            "feet_air_time":       0.5,    # feet_air_time_positive_biped
+            "feet_air_time_neg":  -0.0,    # feet_air_time_negative_biped (penalty)
             "feet_slide":         -0.2,     # feet_slide
             "lin_vel_z_l2":       -0.2,     # lin_vel_z_l2
             "ang_vel_xy_l2":      -0.05,    # ang_vel_xy_l2
@@ -541,10 +541,19 @@ class Hanu(VecTask):
         self.compute_observations()
         self.compute_reward()
 
+        # DEBUG: print before reset
+        n_dones = self.reset_buf.sum().item()
+        if self.progress_buf[0] % 100 == 0:
+            print(f"step {self.progress_buf[0]} | dones this step: {n_dones}")
+
+        dones_snapshot = self.reset_buf.clone()
+
         # Reset any environments that are done
-        env_ids = self.reset_buf.nonzero(as_tuple=False).squeeze(-1)
+        env_ids = self.reset_buf.nonzero(as_tuple=False).flatten()
         if len(env_ids) > 0:
             self.reset_idx(env_ids)
+
+        self.reset_buf[:] = dones_snapshot
 
         # Debug visualisation
         if self.viewer and self.debug_viz:
@@ -908,6 +917,7 @@ class Hanu(VecTask):
             torch.ones_like(self.reset_buf),
             torch.zeros_like(self.reset_buf)
         )
+        self.extras["time_outs"] = timeout.to(self.device)
 
     # ─────────────────────────────────────────────────────────────────────────
     # Reset
