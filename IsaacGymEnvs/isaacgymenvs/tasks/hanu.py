@@ -541,6 +541,29 @@ class Hanu(VecTask):
         self.compute_observations()
         self.compute_reward()
 
+                # DEBUG: reward breakdown
+        if self.progress_buf[0] % 50 == 0:
+            env = 0
+            print(f"\n── Step {self.progress_buf[0].item()} ──")
+            print(f"  rew_buf[0]       : {self.rew_buf[0].item():.3f}")
+            print(f"  reset_buf[0]     : {self.reset_buf[0].item()}")
+            print(f"  base_pos z       : {self.root_states[env, 2].item():.3f} m")
+
+            proj_g = quat_rotate_inverse_batched(
+                self.base_quat[env:env+1], self.gravity_vec[env:env+1]
+            )
+            print(f"  proj_gravity     : {[round(x,3) for x in proj_g[0].tolist()]}")
+            print(f"  (upright = [0, 0, -1])")
+
+            # Show EVERY body with any contact force
+            cf = self.contact_forces[env]
+            print(f"  contacts > 1N:")
+            for i, bname in enumerate(self.body_names):
+                f = cf[i].norm().item()
+                if f > 1.0:
+                    tag = " ← TERMINATES" if i in self.termination_body_ids else ""
+                    print(f"    {bname:<35} {f:7.1f} N{tag}")
+
         # DEBUG: print before reset
         n_dones = self.reset_buf.sum().item()
         if self.progress_buf[0] % 100 == 0:
