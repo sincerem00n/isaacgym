@@ -240,6 +240,7 @@ class Hanu(VecTask):
         self.commands = torch.zeros(
             self.num_envs, 3, dtype=torch.float, device=self.device
         )
+        self._resample_commands(torch.arange(self.num_envs, device=self.device))
 
         # ── action buffers ────────────────────────────────────────────────
         self.actions      = torch.zeros(
@@ -541,7 +542,7 @@ class Hanu(VecTask):
         self.compute_observations()
         self.compute_reward()
 
-                # DEBUG: reward breakdown
+        # DEBUG: reward breakdown
         if self.progress_buf[0] % 50 == 0:
             env = 0
             print(f"\n── Step {self.progress_buf[0].item()} ──")
@@ -617,6 +618,14 @@ class Hanu(VecTask):
 
         self.feet_in_contact_prev = in_contact.clone()
 
+    def _resample_commands(self, env_ids):
+        n = len(env_ids)
+        self.commands[env_ids, 0] = torch_rand_float(
+            -1.0, 1.0, (n, 1), device=self.device).squeeze(-1)   # vx
+        self.commands[env_ids, 1] = torch_rand_float(
+            -0.5, 0.5, (n, 1), device=self.device).squeeze(-1)   # vy
+        self.commands[env_ids, 2] = torch_rand_float(
+            -1.0, 1.0, (n, 1), device=self.device).squeeze(-1)   # yaw_rate
     # ─────────────────────────────────────────────────────────────────────────
     # Observations  (HanuA3RoughEnvCfgV1)
     # ─────────────────────────────────────────────────────────────────────────
@@ -994,6 +1003,7 @@ class Hanu(VecTask):
             gymtorch.unwrap_tensor(env_ids_int32),
             n
         )
+        self._resample_commands(env_ids)
 
         # ── buffer reset ───────────────────────────────────────────────────
         self.prev_actions[env_ids]  = 0.0
