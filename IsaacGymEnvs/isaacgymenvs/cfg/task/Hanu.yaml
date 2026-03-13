@@ -58,6 +58,18 @@ env:
     shoulder_pitch: 0.40
     elbow_pitch: -0.90
     shoulder_roll: 0.02
+    E1R: 0.0
+    abdomen_yaw: 0.0
+    l_shoulder_yaw: 0.0
+    l_wrist_yaw: 0.0
+    l_wrist_pitch: 0.0
+    l_wrist_roll: 0.0
+    r_shoulder_yaw: 0.0
+    r_wrist_yaw: 0.0
+    r_wrist_pitch: 0.0
+    r_wrist_roll: 0.0
+    neck_pitch: 0.0
+    neck_yaw: 0.0
     
   # Asset Configuration
   asset:
