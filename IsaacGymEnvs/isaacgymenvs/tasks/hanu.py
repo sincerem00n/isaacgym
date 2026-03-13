@@ -358,7 +358,7 @@ class Hanu(VecTask):
 
         # Termination body ids: every link EXCEPT feet
         # Refer: HanuA3RoughEnvCfgV1: body_names = ["^(?!.*_foot_.*).*"]
-        self.base_body_ids = [
+        self.termination_body_ids = [
             i for i, bname in enumerate(self.body_names)
             if "_foot_" not in bname
         ]
@@ -845,9 +845,9 @@ class Hanu(VecTask):
         #     Triggered when ANY non-foot link contacts the ground.
         #     Mirrors HanuA3RoughEnvCfgV1: body_names = "^(?!.*_foot_.*).*"
         # ─────────────────────────────────────────────────────────────────
-        if self.base_body_ids:
+        if self.termination_body_ids:
             base_contact = (
-                self.contact_forces[:, self.base_body_ids, :].norm(dim=-1) > 1.0
+                self.contact_forces[:, self.termination_body_ids, :].norm(dim=-1) > 10.0
             ).any(dim=1)
         else:
             base_contact = torch.zeros(self.num_envs, dtype=torch.bool, device=self.device)
