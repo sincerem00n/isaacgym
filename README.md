@@ -1,5 +1,6 @@
 ![Isaac Gym](docs/_static/hanu_task.png)
 
+---
 
 # Isaac Gym for RAI Hanumanoid Project
 
