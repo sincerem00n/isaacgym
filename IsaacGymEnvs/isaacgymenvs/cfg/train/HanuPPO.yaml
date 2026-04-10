@@ -54,13 +54,13 @@ params:
     normalize_advantage: True
     gamma: 0.99
     tau: 0.95 # Matches lam: 0.95
-    learning_rate: 1e-3 # Matches learning_rate: 0.001
+    learning_rate: 5e-4 # Matches learning_rate: 0.001
     lr_schedule: adaptive
     kl_threshold: 0.01 # Matches desired_kl: 0.01
     score_to_win: 20000
     max_epochs: ${resolve_default:50000,${....max_iterations}}
-    save_best_after: 200
-    save_frequency: 1000 # Matches save_interval: 1000
+    save_best_after: 20
+    save_frequency: 10 # Matches save_interval: 1000
     print_stats: True
     grad_norm: 1.0
     entropy_coef: 0.01
@@ -71,7 +71,7 @@ params:
     
     # Minibatch calculation: (numEnvs * horizon_length) / num_mini_batches
     # Default assumption: (4096 * 24) / 4 = 24576
-    minibatch_size: 384
+    minibatch_size: 96
     
     mini_epochs: 5 # Matches num_learning_epochs: 5
     critic_coef: 1.0 # Matches value_loss_coef: 1.0
