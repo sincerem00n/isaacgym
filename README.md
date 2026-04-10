@@ -1,3 +1,12 @@
+![Isaac Gym](docs/_static/hanu_task.png)
+
+
+# Isaac Gym for RAI Hanumanoid Project
+
+[![Python](https://img.shields.io/badge/python-3.7-blue.svg)](https://docs.python.org/3/whatsnew/3.7.html)
+[![Linux platform](https://img.shields.io/badge/platform-linux--64-orange.svg)](https://releases.ubuntu.com/20.04/)
+[![License](https://img.shields.io/badge/license-BSD--3-yellow.svg)](https://opensource.org/licenses/BSD-3-Clause)
+
 ## Installation
 using conda
 ```bash
